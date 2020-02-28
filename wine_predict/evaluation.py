@@ -21,18 +21,18 @@ if __name__=="__main__":
     test_features_data = os.path.join('/opt/ml/processing/test', 'test_features.csv')
     test_labels_data = os.path.join('/opt/ml/processing/test', 'test_labels.csv')
 
-    X_test = pd.read_csv(test_features_data, header=None)
+    X_test = pd.read_csv(test_features_data)
     y_test = pd.read_csv(test_labels_data)
     
     X_test = np.array(X_test)
     y_test = np.array(y_test).ravel()
     
-    predictions = model.predict(X_test)
+    y_pred = model.predict(X_test)
 
     print('Creating Regression Evaluation Report')
     report_dict = {}
-    report_dict['r2'] = r2_score(y_test, predictions)
-    report_dict['RSME'] = mean_squared_error(y_test, predictions)
+    report_dict['r2'] = r2_score(y_test, y_pred)
+    report_dict['RSME'] = mean_squared_error(y_test, y_pred)
 
     print('Regression Report Report:\n{}'.format(report_dict))
 

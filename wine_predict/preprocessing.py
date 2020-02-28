@@ -45,6 +45,10 @@ if __name__=='__main__':
     train_features = scaler.transform(X_train)
     test_features = scaler.transform(X_test)
     
+    # Convert Training Data to Float32
+    train_features = train_features.astype('float32')
+    
+    
     # Create local output directories
     try:
         os.makedirs('/opt/ml/processing/output/train')
