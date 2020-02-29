@@ -25,15 +25,11 @@ if __name__=='__main__':
     print('Reading input data from {}'.format(input_data_path))
     df = pd.read_csv(input_data_path, header=0, delimiter=";", low_memory=False)
     
-    print()
-    
-    #Replace spaces in column headers with underscores
-    #df.columns = df.columns.str.replace(' ', '_')
-    
-    #X_columns = df.drop('quality', axis=1).columns
-    
+      
     split_ratio = args.train_test_split_ratio
+    
     print('Splitting data into train and test sets with ratio {}'.format(split_ratio))
+    
     #Split Data into training / test
     X_train, X_test, y_train, y_test = train_test_split(df.drop('quality', axis=1), 
                                                         df['quality'], 
@@ -45,9 +41,9 @@ if __name__=='__main__':
     train_features = scaler.transform(X_train)
     test_features = scaler.transform(X_test)
     
-    # Convert Training Data to Float32
+    # Convert Data to Float32
     train_features = train_features.astype('float32')
-    
+    test_features = test_features.astype('float32')
     
     # Create local output directories
     try:
