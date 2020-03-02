@@ -10,7 +10,7 @@ test:
 	#python -m pytest --nbval wine_predict/wine_quality_predict.ipynb
 
 lint:
-	hadolint Dockerfile 
+	#hadolint Dockerfile 
 	pylint --disable=R,C,W0104,E0602 wine_predict/**.ipynb
 
 run:
