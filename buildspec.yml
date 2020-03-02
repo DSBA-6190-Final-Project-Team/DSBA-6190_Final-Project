@@ -6,7 +6,6 @@ phases:
       python: 3.x
     commands:
       - echo "Upgrade Pip and install packages."
-      - pip install --upgrade pip
       - make install
       
         # Copy Files to Build Test Directory
