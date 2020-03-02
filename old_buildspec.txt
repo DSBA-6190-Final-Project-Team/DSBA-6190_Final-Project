@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.x
+    
+    commands:
+      - echo "Upgrade Pip and install packages."
+      - make install
+      
+    # Copy Files to Build Test Directory
+      #- cp wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb  build_test/build/
+      - echo "Starting packaging `date` in `pwd`"
+
+  build:
+    commands:
+      - echo "Run lint and test"
+      #- make lint
+    
+  post_build:
+    commands:
+      - echo "Copy Code TO S3"
+      - aws s3 sync $CODEBUILD_SRC_DIR s3://dsba-6190-final-team-project/build-test
+
