@@ -11,7 +11,7 @@ test:
 
 lint:
 	#hadolint Dockerfile 
-	pylint --disable=R,C wine_predict/*.py
+	#pylint --disable=R,C wine_predict/*.py
 
 	
 all: 
