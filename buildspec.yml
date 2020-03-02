@@ -12,12 +12,14 @@ phases:
 
   pre_build:
     commands:
-      - cp wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb  build_test/build/
-      - echo "Starting packaging `date` in `pwd`"
+      - mkdir -p build
+
   build:
     commands:
-      # - command
-      # - command
+      - cp wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb  /build
+      - echo "Starting packaging `date` in `pwd`"
+      - make lint
+
   #post_build:
     #commands:
       # - command
