@@ -1,3 +1,4 @@
+
 version: 0.2 
 
 phases:
@@ -7,13 +8,13 @@ phases:
       - make install
       
         # Copy Files to Build Test Directory
-#      - cp wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb  build_test/build/
+      #- cp wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb  build_test/build/
       - echo "Starting packaging `date` in `pwd`"
 
   build:
     commands:
       - echo "Run lint and test"
-      - make lint
+      #- make lint
     
   post_build:
     commands:
