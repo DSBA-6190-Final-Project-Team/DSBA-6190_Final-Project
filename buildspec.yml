@@ -6,9 +6,9 @@ phases:
     #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
     runtime-versions:
        python: 3.x
-    #commands:
-      # - command
-      # - command
+    commands:
+      - echo "Upgrade Pip and install packages."
+      - make install
   #pre_build:
     #commands:
       # - command
