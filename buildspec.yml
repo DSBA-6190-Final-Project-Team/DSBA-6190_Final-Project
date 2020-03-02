@@ -2,13 +2,12 @@ version: 0.2
 
 phases:
   install:
-#    runtime-versions:
-#        python: 3.x
     commands:
       - echo "Upgrade Pip and install packages."
-      - make install -t build_test/build/
+      - make install
+      
         # Copy Files to Build Test Directory
-      - cp wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb  build_test/build/
+#      - cp wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb  build_test/build/
       - echo "Starting packaging `date` in `pwd`"
 
   build:
