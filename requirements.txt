@@ -1,3 +1,4 @@
+io
 pylint
 nbval
 
@@ -7,7 +8,6 @@ numpy
 sklearn
 sagemaker
 boto3
-io
 os
 tarfile
 datetime
