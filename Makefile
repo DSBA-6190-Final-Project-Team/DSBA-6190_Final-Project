@@ -2,8 +2,7 @@ setup:
 	python3 -m venv .DSBA-6190_Final-Project
 
 install:
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
+	pip install -r requirements.txt
 
 test:
 	#python -m pytest -vv --cov=myrepolib tests/*.py
@@ -13,8 +12,6 @@ lint:
 	#hadolint Dockerfile 
 	pylint --disable=R,C wine_predict/*.py
 
-run:
-	python3 main.py
 	
 all: 
 	install lint test

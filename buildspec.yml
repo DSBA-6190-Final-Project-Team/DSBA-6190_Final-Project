@@ -1,10 +1,12 @@
-
-version: 0.1
+version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      python: 3.x
     commands:
       - echo "Upgrade Pip and install packages."
+      - pip install --upgrade pip
       - make install
       
         # Copy Files to Build Test Directory
@@ -18,5 +20,5 @@ phases:
     
   post_build:
     commands:
-      - echo "COPY Code TO S3"
+      - echo "Copy Code TO S3"
       - aws s3 sync $CODEBUILD_SRC_DIR s3://dsba-6190-final-team-project/build-test
