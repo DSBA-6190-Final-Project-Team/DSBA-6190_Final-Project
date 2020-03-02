@@ -9,10 +9,11 @@ phases:
     commands:
       - echo "Upgrade Pip and install packages."
       - make install
-  #pre_build:
-    #commands:
-      # - command
-      # - command
+
+  pre_build:
+    commands:
+      - cp wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb  build_test/build/
+      - echo "Starting packaging `date` in `pwd`"
   build:
     commands:
       # - command
