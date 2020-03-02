@@ -7,7 +7,7 @@ numpy
 sklearn
 sagemaker
 boto3
-tarfile
+#tarfile
 datetime
 joblib
 argparse
