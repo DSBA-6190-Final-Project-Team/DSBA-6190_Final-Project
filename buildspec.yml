@@ -1,9 +1,10 @@
+
 version: 0.2
 
 phases:
   install:
-    runtime-versions:
-        python: 3.x
+#    runtime-versions:
+#        python: 3.x
     commands:
       - echo "Upgrade Pip and install packages."
       - make install -t build_test/build/
