@@ -21,7 +21,10 @@ phases:
   post_build:
     commands:
        - echo 'Running Notebook'
-       - runipy build/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb
+       - pwd
+       - ls
+       - runipy /build/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb
+
 #reports:
   #report-name-or-arn:
     #files:
