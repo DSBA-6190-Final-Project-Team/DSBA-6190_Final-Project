@@ -10,21 +10,20 @@ phases:
 
   pre_build:
     commands:
-      - mkdir -p build
+#      - mkdir -p build
 
   build:
     commands:
-      - cp wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb  /build
+#      - cp wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb  /build
       - echo "Starting packaging `date` in `pwd`"
       - make lint
 
   post_build:
     commands:
        - echo 'Running Notebook'
-       - cd build
        - pwd
        - ls
-#       - runipy /build/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb
+       - runipy /wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb
 
 #reports:
   #report-name-or-arn:
