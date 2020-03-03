@@ -7,10 +7,12 @@ install:
 
 test:
 	#python -m pytest -vv --cov=myrepolib tests/*.py
-	#python -m pytest --nbval wine_predict/wine_quality_predict.ipynb
+	#py.test --nbval wine_predict/wine_quality_predict-sagemaker-SKLearn.ipynb
+	python -m pytest --nbval wine_predict/wine_quality_predict-sagemaker-SKlearn-backcheck.ipynb
 
 lint:
 	#hadolint Dockerfile 
+	#pylint --disable=R,C wine_predict/*.py
 	#pylint --disable=R,C wine_predict/*.py
 
 	
