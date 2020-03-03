@@ -23,7 +23,9 @@ phases:
        - echo 'Running Notebook'
        - pwd
        - ls
-       - runipy /wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb
+       - cd wine_predict
+       - ls
+       - runipy wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb
 
 #reports:
   #report-name-or-arn:
