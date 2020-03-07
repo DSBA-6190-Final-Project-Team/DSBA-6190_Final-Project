@@ -15,6 +15,5 @@ lint:
 	#pylint --disable=R,C wine_predict/*.py
 	#pylint --disable=R,C wine_predict/*.py
 
-	
 all: 
 	install lint test
