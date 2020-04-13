@@ -1,6 +1,6 @@
 *Add Distracted Driver Image as Header*
 
-# Continuous Integration and Deployment of Image Classification Model
+# Continuous Integration and Deployment of Image Classification Model with Amazon Sagemaker
 This repo contains the files for a Continuous Integration/Continuous Deployment (CI/CD) process for an image classification model to identify distracted drivers. For the CI/CD framework, this project uses Amazon CodeBuild to continuously deploy and update the project, and Amazon Sagemaker to train and deploy the resulting model to an endpoint. Load testing of the end point is then performed using by an Amazon Lambda function.
 
 The project flow is broken down into the following steps:
