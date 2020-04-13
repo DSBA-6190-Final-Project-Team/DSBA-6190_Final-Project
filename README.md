@@ -9,7 +9,7 @@ The project flow is broken down into the following steps:
 2. Train and Deploy Model
 3. Evaluate Performance
 4. Load-Test Deployed Endpoint
-5. CodeBuild Framework for CI/CD Process
+5. Overall Structure: CodeBuild Framework for CI/CD Process
 
 *Insert Process Flow Diagram*
 
@@ -60,7 +60,7 @@ Once the model is deployed to an HTTPS endpoint, we test the endpoint with the a
 ## Load-Test Deployed Endpoint
 *To Be Completed Later. Currently the expected method for Load Testing is to use a Lamda Function to ping the model endpoint. Currently this will be done manually, but if we roll everything into a CloudFormation or Terraform package, this step could be part of the CI/CD pipeline.*
 
-## CodeBuild Framework for CI/CD Process
+## Overall Structure: CodeBuild Framework for CI/CD Process
 To Continuously Deploy the Image Classification model, this project uses Amazon CodeBuild. CodeBuild automatically compiles the source code and runs the necessary files in this repo to train and deploy the model. 
 
 The CodeBuild process is defined by the **buildspec.yml** file. This file tells CodeBuild the steps for this project once triggered. Currently, the CodeBuild set to be triggered by an update to this GitHub repo (this function is currently off during development). In the future, additional lambdas might be used for additional triggers (such as a trigger when new data is added to the training data). The following is the process flow:
