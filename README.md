@@ -34,3 +34,15 @@ The two CSV files are as follows:
 
 * sample_submission.csv - a sample submission file in the correct format
 * driver_imgs_list.csv - a list of training images, their subject (driver) id, and class id
+
+### Data Processing
+Currently all data processing is performed locally, and must be completed manually before loading into the CI/CD framework. Future plans are to integrate this step into fully into the process.
+
+The images provided in the **train** directory are JPG files. The algorithm used to develop the model is the Sagemaker Image Classification algorithm. This algorithm can take input data in two formats: 
+
+1. Raw image files (i.e.: JPG, PNG, etc.)
+2. RecordIO - [Apache MXNet file type](https://mxnet.apache.org/api/faq/recordio)
+
+The RecordIO file type is recommended by Amazon, and therefore this is the file type used for this project.
+
+To convert raw image files to a RecordIO format we used the conversion tool (**im2rec.py** python script) provided by [Apache MXNet](https://mxnet.apache.org/api/faq/recordio).
