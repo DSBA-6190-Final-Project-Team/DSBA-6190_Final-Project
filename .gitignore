@@ -130,7 +130,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Folders
+# Folders and Files
 */imgs
 /imgs
 imgs/*
+*.rec
+incubator-mxnet/
+client_secrets.json
