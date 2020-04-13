@@ -58,7 +58,7 @@ Once the model is deployed to an HTTPS endpoint, we test the endpoint with the a
 *This may be performed manually, or rolled into the CI/CD pipeline*
 
 ## Load-Test Deployed Endpoint
-*To Be Completed Later. Currently the expected method for Load Testing is to use a Lambda Function to ping the model endpoint. Currently this will be done manually, but if we roll everything into a CloudFormation or Terraform package, this step could be part of the CI/CD pipeline.*
+*To Be Completed Later. Currently the expected method for Load Testing is to use a Lambda Function to ping the model endpoint. Currently this will be done manually, but if we roll everything into a CodePipeline, CloudFormation, or Terraform package, this step could be part of the CI/CD pipeline.*
 
 ## Overall Structure: CodeBuild Framework for CI/CD Process
 To Continuously Deploy the Image Classification model, this project uses Amazon CodeBuild. CodeBuild automatically compiles the source code and runs the necessary files in this repo to train and deploy the model. 
