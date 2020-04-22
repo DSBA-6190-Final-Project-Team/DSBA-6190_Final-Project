@@ -21,7 +21,7 @@ phases:
   post_build:
     commands:
        - echo 'Running Notebook'
-       - runipy notebooks/model_deploy-distracted driver_identification.ipynb
+       - runipy notebooks/training_and_endpoint_deployment.ipynb
 
 #reports:
   #report-name-or-arn:
