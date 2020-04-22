@@ -22,7 +22,7 @@ phases:
     commands:
        - echo 'Running Notebook'
 #       - runipy notebooks/model_training_and_endpoint_deployment.ipynb
-       - runipy notebooks/model_training.ipynb.ipynb
+       - runipy notebooks/model_training.ipynb
 
 #reports:
   #report-name-or-arn:
