@@ -21,7 +21,8 @@ phases:
   post_build:
     commands:
        - echo 'Running Notebook'
-       - runipy notebooks/training_and_endpoint_deployment.ipynb
+#       - runipy notebooks/model_training_and_endpoint_deployment.ipynb
+       - runipy notebooks/model_training.ipynb.ipynb
 
 #reports:
   #report-name-or-arn:
