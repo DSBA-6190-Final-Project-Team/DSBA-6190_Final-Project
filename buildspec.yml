@@ -21,7 +21,7 @@ phases:
   post_build:
     commands:
        - echo 'Running Notebook'
-       - runipy wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb
+       - runipy notebooks/model_deploy-distracted driver_identification.ipynb
 
 #reports:
   #report-name-or-arn:
