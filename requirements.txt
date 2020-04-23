@@ -11,4 +11,3 @@ datetime
 
 runipy
 pprint
-posixpath
