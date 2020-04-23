@@ -14,15 +14,13 @@ phases:
 
   build:
     commands:
-#      - cp wine_predict/wine_quality_predict-sagemaker-SKLearn-build-test.ipynb  /build
       - echo "Starting packaging `date` in `pwd`"
       - make lint
 
   post_build:
     commands:
        - echo 'Running Notebook'
-#       - runipy notebooks/model_training_and_endpoint_deployment.ipynb
-       - runipy notebooks/model_training.ipynb
+       - runipy notebooks/model_training_and_endpoint_deployment.ipynb
 
 #reports:
   #report-name-or-arn:
