@@ -58,4 +58,6 @@ def lambda_handler(event, context):
 
     payload_test = "1, 2, 3"
     
-    return {'payload' : payload}
+    return {
+        'payload' : payload
+    }
