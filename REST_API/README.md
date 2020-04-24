@@ -7,6 +7,7 @@ The following blog post was a big help in setting up the SageMaker endpoint as a
 
 ### Create Resource and Method
 1. Go to AWS API Gateway. Select **Create API**
+
 IMAGE - 1
 
 2. Select **REST API**. Click Build.
@@ -51,5 +52,40 @@ Image - 4
 
 Image - 5 
 
+8. Select Save.
 
+### Deploy API
+1. Return to **API/Resources** page. Ensure under **Resources** side banner the method **POST** is highlighted. 
 
+2. Click Actions. Select Deploy API.
+
+3. For Deployment Stage, select **New Stage**.
+
+4. Add **Stage Name**. Click **Deploy**.
+
+IMAGE - 6
+
+### API Request Tests
+For API testing, we used Postman
+
+1. Open Postman
+
+2. Create new Request.
+
+3. Set Request method to **POST**.
+
+4. Insert API URL in the **Enter request URL** entry.
+
+* The API URL can be found be going to **API > Stages** and selecting the **POST** under **{Resource Name}**. The URL will be listed as **Invoke URL** in the main windown.
+
+IMAGE - 6
+
+5. Go to **Headers**. Add the following header:
+* KEY: Content-Type
+* Value: image/jpg
+
+IMAGE - 7
+
+6. Go to **Body**. Select **binary**. Add a JPG image from your local machine.
+
+7. Click **Send**. If established correctly, the expected return will be received as a JSON.
