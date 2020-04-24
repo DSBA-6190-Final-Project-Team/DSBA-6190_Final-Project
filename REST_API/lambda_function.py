@@ -55,9 +55,7 @@ def lambda_handler(event, context):
     # Generates Prediction with Byte Array. 
     # Returns List of Probabilites for All Classes
     payload = invoke_endpoint(image_bytearray)
-    
-    #print(payload)
-    
+
     payload_test = "1, 2, 3"
     
     return {'payload' : payload}
