@@ -8,14 +8,15 @@ The following blog post was a big help in setting up the SageMaker endpoint as a
 ### Create Resource and Method
 1. Go to AWS API Gateway. Select **Create API**
 
-IMAGE - 1
+![Create API](images/1_create_api.png)
 
 2. Select **REST API**. Click Build.
 
 3. Keep Defaults. Add Name and description.
 
 4. Go to **Resources** (Left bar, under API): . Make Sure **/** is highlighted in the **Resources** banner.
-IMAGE - 2
+
+![Create Resource](images/2_create_resource.png)
 
 5. Select **Actions > Create Resource**.
  
@@ -34,11 +35,11 @@ IMAGE - 2
 * Use Default Timeout: Remain checked.
 * Clcik Save. Select OK to give API Gateway permission to invoke Lambda Function.
 
-Image -3 
+![Configure Method](images/3_configure_method.png)
 
 2. Click on Integration Request
 
-Image - 4
+![Integration Request](images/4_integration_request.png)
 
 3. Click **Mapping Templates** so that drop-down content is visible.
 
@@ -50,7 +51,7 @@ Image - 4
 
 7. Scroll Down. Enter the following in the empty template box.
 
-Image - 5 
+![Mapping Templates](images/5-mapping_templates.png)
 
 8. Select Save.
 
@@ -63,7 +64,7 @@ Image - 5
 
 4. Add **Stage Name**. Click **Deploy**.
 
-IMAGE - 6
+![Deploy](images/6-deploy.png)
 
 ### API Request Tests
 For API testing, we used Postman
@@ -78,13 +79,13 @@ For API testing, we used Postman
 
 * The API URL can be found be going to **API > Stages** and selecting the **POST** under **{Resource Name}**. The URL will be listed as **Invoke URL** in the main windown.
 
-IMAGE - 6
+![Invoke URL](images/7-invoke_url.png)
 
 5. Go to **Headers**. Add the following header:
 * KEY: Content-Type
 * Value: image/jpg
 
-IMAGE - 7
+![Postman Headers](8-postman_headers.png)
 
 6. Go to **Body**. Select **binary**. Add a JPG image from your local machine.
 
