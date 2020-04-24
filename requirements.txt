@@ -1,5 +1,7 @@
 pylint
 nbval
+locust
+locustio
 
 pandas
 numpy
