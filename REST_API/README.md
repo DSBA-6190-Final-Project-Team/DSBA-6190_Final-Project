@@ -1,5 +1,5 @@
-# Steps for Setting Up API Gateway
-## Accepts Binary Images (JPG) and Returns JSON
+# Steps for Setting Up REST API with API Gateway and Lambda Function
+## REST API Accepts Binary Images (JPG) and Returns JSON Payload
 
 The following blog post was a big help in setting up the SageMaker endpoint as a REST API, able to accept binary JPG files: 
 
