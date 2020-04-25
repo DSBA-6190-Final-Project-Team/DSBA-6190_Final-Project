@@ -5,6 +5,7 @@
 ![Build Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiOVdVSE5rWHlPY1RUYS9uRis2cll2enNIMEtCQkxXYkJjeFJFcGsrSmp1bGgyK2ZuMWc5WkRIM1BxNWRGR1FqaWMvVU5qd1EyZnNCWWNzVUVkakFyR24wPSIsIml2UGFyYW1ldGVyU3BlYyI6IjVyaTRlSy9aTHQzbE1PZ3MiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
 # Continuous Integration and Deployment of Image Classification Model with Amazon Sagemaker
+## DSBA 6190 - Intro to Cloud Computing - Team Project
 
 **Team Members**
 * Evan Canfield
