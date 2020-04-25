@@ -2,6 +2,7 @@ pylint
 nbval
 locust
 locustio
+flask
 
 pandas
 numpy

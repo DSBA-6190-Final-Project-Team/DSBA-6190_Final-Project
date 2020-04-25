@@ -2,6 +2,8 @@ from flask import Flask, request, render_template
 from flask.logging import create_logger
 import logging
 
+import boto3
+
 # Import from Python Scripts
 #from python_scripts.model import InputForm
 #from python_scripts.custom_functions import create_dataframe, scale
@@ -15,6 +17,8 @@ LOG.setLevel(logging.INFO)
 
 @app.route("/")
 def home():
+    
+    
     return render_template('index.html')
 
 if __name__ == '__main__':
