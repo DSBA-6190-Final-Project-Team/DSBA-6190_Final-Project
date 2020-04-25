@@ -5,6 +5,13 @@
 ![Build Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiOVdVSE5rWHlPY1RUYS9uRis2cll2enNIMEtCQkxXYkJjeFJFcGsrSmp1bGgyK2ZuMWc5WkRIM1BxNWRGR1FqaWMvVU5qd1EyZnNCWWNzVUVkakFyR24wPSIsIml2UGFyYW1ldGVyU3BlYyI6IjVyaTRlSy9aTHQzbE1PZ3MiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
 # Continuous Integration and Deployment of Image Classification Model with Amazon Sagemaker
+
+**Team Members**
+* Evan Canfield
+* Roma Dutta
+* Shilpa Patil
+* Ibrokhim Sadikov
+
 This repo contains the files for a Continuous Integration/Continuous Deployment (CI/CD) process for an image classification model to identify distracted drivers. For the CI/CD framework, this project uses Amazon CodeBuild to continuously deploy and update the project, and Amazon Sagemaker to train and deploy the resulting model to an endpoint. Load testing of the end point is then performed using by an Amazon Lambda function.
 
 The project flow is broken down into the following steps:
