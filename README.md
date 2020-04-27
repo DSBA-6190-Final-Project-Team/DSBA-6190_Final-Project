@@ -17,10 +17,6 @@ This repo contains the files for a Continuous Integration/Continuous Deployment 
 
 The project flow is broken down into the following steps:
 
-1. Process Input Data and Upload to AWS S3
-2. Train and Deploy Model
-3. Establish REST API 
-
 ![Process Flow Diagram](presentation/process_flow_image.png)
 
 ## Process Input Data and Upload to AWS S3
