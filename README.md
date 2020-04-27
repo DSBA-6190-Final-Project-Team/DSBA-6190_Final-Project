@@ -17,7 +17,7 @@ This repo contains the files for a Continuous Integration/Continuous Deployment 
 
 The project flow is broken down into the following steps:
 
-![Process Flow Diagram](presentation/process_flow_image.png)
+![Process Flow Diagram](presentation/process_flow_diagram.png)
 
 ## Process Input Data and Upload to AWS S3
 ### Data Description
