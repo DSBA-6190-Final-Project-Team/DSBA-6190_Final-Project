@@ -13,17 +13,11 @@
 * Shilpa Patil
 * Ibrokhim Sadikov
 
-This repo contains the files for a Continuous Integration/Continuous Deployment (CI/CD) process for an image classification model to identify distracted drivers. For the CI/CD framework, this project uses Amazon CodeBuild to continuously deploy and update the project, and Amazon Sagemaker to train and deploy the resulting model to an endpoint. Load testing of the end point is then performed using by an Amazon Lambda function.
+This repo contains the files for a Continuous Integration/Continuous Deployment (CI/CD) process for an image classification model to identify distracted drivers. For the process framework, this project uses Amazon CodeBuild to continuously deploy and update the project, and Amazon Sagemaker to train and deploy the resulting model to an endpoint. The endpooint is then made publicaly avaiable as a REST API by using Amazon Gateway API coupled with Amazon Lambda.
 
 The project flow is broken down into the following steps:
 
-1. Process Input Data and Upload to AWS S3
-2. Train and Deploy Model
-3. Evaluate Performance
-4. Load-Test Deployed Endpoint
-5. Overall Structure: CodeBuild Framework for CI/CD Process
-
-*Insert Process Flow Diagram*
+![Process Flow Diagram](presentation/process_flow_image.png)
 
 ## Process Input Data and Upload to AWS S3
 ### Data Description
@@ -60,23 +54,20 @@ The images provided in the **train** directory are JPG files. The algorithm used
 The RecordIO file type is recommended by Amazon and is the file type used for this project. Therefore, the raw image files provided needed to be converted to RecordIO. To convert these raw images, the conversion tool (**im2rec.py** python script, found in the **tools** folder) provided by [Apache MXNet](https://mxnet.apache.org/api/faq/recordio) was used.
 
 ## Train and Deploy Model
-Once the data is processed and uploaded to S3, the model can be trained. All model training and deployment is performed in the **model_deploy-distracted driver_identification.ipynb** notebook. This notebook imports the data from S3 (uploaded in the previous step), trains the Image Classification Model (using a pre-trained model to save time and money), and then deploys the model to an HHTPS endpoint.
+Once the data is processed and uploaded to S3, the model can be trained. All model training and deployment is performed in the **model_deploy-distracted driver_identification.ipynb** notebook. This notebook imports the data from S3 (uploaded in the previous step), trains the Image Classification Model (using a pre-trained model to save time and money), and then deploys the model to an HHTPS endpoint. Once the endpoint is deployed, an autoscaling policy is applied.
 
-*Verify where elastic scaling is defined. I think is will be defined in this notebook, before the model is deployed.
-
-## Evaluate Model
-Once the model is deployed to an HTTPS endpoint, we test the endpoint with the available test images.
-
-*This may be performed manually, or rolled into the CI/CD pipeline*
+## REST API
+Once the trained model is deployed, a REST API is established to allow public access to the model. The REST API uses Amazon Gateway API Service with a Lambda Function to provide access to distracted driver image predictions. The Lambda function script can be found in the **REST API** subfolder. Furthermore, the README in the  **REST API** subfolder provides instructions on how to establish an API Gateway which will accept JPG images. 
 
 ## Load-Test Deployed Endpoint
 *To Be Completed Later. Currently the expected method for Load Testing is to use a Lambda Function to ping the model endpoint. Currently this will be done manually, but if we roll everything into a CodePipeline, CloudFormation, or Terraform package, this step could be part of the CI/CD pipeline.*
 
-## Overall Structure: CodeBuild Framework for CI/CD Process
-To Continuously Deploy the Image Classification model, this project uses Amazon CodeBuild. CodeBuild automatically compiles the source code and runs the necessary files in this repo to train and deploy the model. 
+## Overall Structure: CodeBuild Framework For Continuous Deployment
+To Continuously Deploy the Image Classification model, this project uses Amazon CodeBuild. CodeBuild automatically compiles the source code and runs the necessary files in this repo to train and deploy the model. Once trained, the model is either deployed as an endpoint, or a currently deployed endpoint is updated with the new model.
 
 The CodeBuild process is defined by the **buildspec.yml** file. This file tells CodeBuild the steps for this project once triggered. Currently, the CodeBuild set to be triggered by an update to this GitHub repo (this function is currently off during development). In the future, additional lambdas might be used for additional triggers (such as a trigger when new data is added to the training data). The following is the process flow:
 
 GitHub Repo Updates > Triggers CodeBuild > CodeBuild Executes **buildspec.yml** > Executes **model_deploy-distracted driver_identification.ipynb** notebook
 
-In the future, we hope to include testing and reports as part of the CodeBuild flow after the model is deployed.
+# Possible Future Updates
+* Testing and reports as part of the CodeBuild flow after the model is deployed.
