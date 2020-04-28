@@ -1,4 +1,5 @@
 from locust import HttpLocust, TaskSet, task, between
+from locust.contrib.fasthttp import FastHttpLocust
 import os
 import logging
 
@@ -27,14 +28,14 @@ class BaseTaskSet(TaskSet):
 class UserBehavior(BaseTaskSet):
     @task(1)
     def post_test(self):
-        response = self.client.post(url=os.path.join(host_url, post_path),
+        response = self.client.post(path=os.path.join(host_url, post_path),
                          data=payload,
                          headers = self.headers
         )
 
         #LOG.info("Return Payload Status: {}".format(response))
 
-class WebsiteUser(HttpLocust):
+class WebsiteUser(FastHttpLocust):
     host=host_url
     task_set=UserBehavior
-    wait_time=between(5.0, 15)
+    wait_time=between(0, 0)
