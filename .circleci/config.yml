@@ -38,9 +38,3 @@ jobs:
           command: |
             . venv/bin/activate
             make lint           
-
-      - run:
-          name: Testing
-          command: |
-            . venv/bin/activate
-            make test      
