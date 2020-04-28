@@ -15,7 +15,7 @@ payload_path = "payload_files/img_1.jpg"
 payload = open(payload_path, "rb").read()
 
 class BaseTaskSet(TaskSet):
-    
+    @task
     def on_start(self):
         # Called everytime when a simulated user starts executing TaskSet class
         self.headers = {
