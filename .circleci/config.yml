@@ -43,4 +43,4 @@ jobs:
           name: Testing
           command: |
             . venv/bin/activate
-            make lint      
+            make test      
