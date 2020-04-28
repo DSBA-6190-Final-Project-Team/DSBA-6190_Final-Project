@@ -1,1 +1,1 @@
-locust --slave --master-host=3.85.107.85
+locust --slave --master-host=18.212.10.158
