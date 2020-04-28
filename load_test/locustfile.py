@@ -1,4 +1,4 @@
-from locust import HttpLocust, TaskSet, task, between
+from locust import TaskSet, task, between
 from locust.contrib.fasthttp import FastHttpLocust
 import os
 import logging
@@ -26,7 +26,6 @@ class BaseTaskSet(TaskSet):
 
 
 class UserBehavior(BaseTaskSet):
-    @task(1)
     def post_test(self):
         self.client.post(path=os.path.join(host_url, post_path),
                          data=payload,
