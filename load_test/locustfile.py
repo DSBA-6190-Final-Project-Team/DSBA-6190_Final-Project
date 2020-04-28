@@ -9,10 +9,6 @@ host_url = "https://96gfw8ry96.execute-api.us-east-1.amazonaws.com"
 
 post_path='Test/predict'
 
-#headers = {
-#    "Content-Type": "image/jpg"
-#}
-
 payload_path = "payload_files/img_1.jpg"
 
 payload = open(payload_path, "rb").read()
@@ -25,7 +21,7 @@ class BaseTaskSet(TaskSet):
             'content-type': "image/jpg"
         }
         
-        LOG.info('Headers: {}'.format(self.headers))
+        #LOG.info('Headers: {}'.format(self.headers))
 
 
 class UserBehavior(BaseTaskSet):
@@ -36,7 +32,7 @@ class UserBehavior(BaseTaskSet):
                          headers = self.headers
         )
 
-        LOG.info("Return Payload Status: {}".format(response))
+        #LOG.info("Return Payload Status: {}".format(response))
 
 class WebsiteUser(HttpLocust):
     host=host_url
