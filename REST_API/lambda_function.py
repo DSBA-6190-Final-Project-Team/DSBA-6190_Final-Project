@@ -22,7 +22,6 @@ runtime = boto_sess.client(service_name='runtime.sagemaker')
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
-
 logger.error('Starting prediction')
 
 
@@ -30,11 +29,13 @@ def write_to_file(save_path, data):
   with open(save_path, "wb") as f:
     f.write(base64.b64decode(data))
 
+
 def image_to_bytearray(save_path):
     with open(save_path, 'rb') as f:
         payload = f.read()
         payload = bytearray(payload)  
     return payload
+
 
 def invoke_endpoint(payload):
     response = runtime.invoke_endpoint(EndpointName=endpoint_name, 
@@ -43,6 +44,7 @@ def invoke_endpoint(payload):
     result = response['Body'].read()
     result = json.loads(result)
     return result
+
 
 def lambda_handler(event, context):
     

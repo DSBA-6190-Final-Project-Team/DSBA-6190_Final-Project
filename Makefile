@@ -6,14 +6,11 @@ install:
 		pip install -r requirements.txt
 
 test:
-	#python -m pytest -vv --cov=myrepolib tests/*.py
-	#py.test --nbval wine_predict/wine_quality_predict-sagemaker-SKLearn.ipynb
-	python -m pytest --nbval wine_predict/wine_quality_predict-sagemaker-SKlearn-backcheck.ipynb
-
+	python -m pytest --nbval notebooks/processing_upload2s3.ipynb
+	#python -m pytest --nbval notebooks/model_training_and_endpoint_deployment.ipynb
 lint:
-	#hadolint Dockerfile 
-	#pylint --disable=R,C wine_predict/*.py
-	#pylint --disable=R,C wine_predict/*.py
+	pylint --disable=R,C,W1202	load_test/*.py
+	#pylint --disable=R,C		REST_API/lambda_function.py
 
 all: 
 	install lint test
