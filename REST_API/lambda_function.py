@@ -1,7 +1,6 @@
 import logging
 import os
 import json
-import posixpath
 import boto3
 import base64
 
@@ -26,8 +25,8 @@ logger.error('Starting prediction')
 
 
 def write_to_file(save_path, data):
-  with open(save_path, "wb") as f:
-    f.write(base64.b64decode(data))
+    with open(save_path, "wb") as f:
+        f.write(base64.b64decode(data))
 
 
 def image_to_bytearray(save_path):
@@ -58,7 +57,8 @@ def lambda_handler(event, context):
     # Returns List of Probabilites for All Classes
     payload = invoke_endpoint(image_bytearray)
 
-    payload_test = "1, 2, 3"
+    # Debugging Payload
+    #payload_test = "1, 2, 3"
     
     return {
         'payload' : payload
