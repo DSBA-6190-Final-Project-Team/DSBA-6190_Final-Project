@@ -28,12 +28,11 @@ class BaseTaskSet(TaskSet):
 class UserBehavior(BaseTaskSet):
     @task(1)
     def post_test(self):
-        response = self.client.post(path=os.path.join(host_url, post_path),
+        self.client.post(path=os.path.join(host_url, post_path),
                          data=payload,
                          headers = self.headers
         )
 
-        #LOG.info("Return Payload Status: {}".format(response))
 
 class WebsiteUser(FastHttpLocust):
     host=host_url
