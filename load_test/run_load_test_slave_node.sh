@@ -1,1 +1,9 @@
-locust --slave --master-host=18.212.10.158
+#!/bin/bash
+locust --slave --master-host=3.80.131.103 &
+locust --slave --master-host=3.80.131.103 &
+locust --slave --master-host=3.80.131.103 &
+locust --slave --master-host=3.80.131.103 &
+locust --slave --master-host=3.80.131.103 &
+locust --slave --master-host=3.80.131.103 &
+locust --slave --master-host=3.80.131.103 &
+locust --slave --master-host=3.80.131.103 &

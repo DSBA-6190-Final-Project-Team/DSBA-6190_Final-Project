@@ -20,20 +20,18 @@ class BaseTaskSet(TaskSet):
         self.headers = {
             'content-type': "image/jpg"
         }
-        
-        #LOG.info('Headers: {}'.format(self.headers))
 
 
 class UserBehavior(BaseTaskSet):
     @task(1)
     def post_test(self):
-            response = self.client.post(url=os.path.join(host_url, post_path),
+        self.client.post(url=os.path.join(host_url, post_path),
                          data=payload,
                          headers = self.headers
                          )
-            #LOG.info(response.text)
-        
+
+
 class WebsiteUser(HttpLocust):
     host=host_url
     task_set=UserBehavior
-    wait_time=between(0, 0)
+    wait_time=between(5, 15)

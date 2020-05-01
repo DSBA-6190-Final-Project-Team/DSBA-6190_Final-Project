@@ -1,0 +1,7 @@
+# Master
+3.80.131.103
+ec2-3-80-131-103.compute-1.amazonaws.com
+
+# Slave
+3.95.169.26
+ec2-3-95-169-26.compute-1.amazonaws.com
