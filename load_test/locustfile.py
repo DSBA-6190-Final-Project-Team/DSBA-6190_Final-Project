@@ -34,4 +34,4 @@ class UserBehavior(BaseTaskSet):
 class WebsiteUser(HttpLocust):
     host=host_url
     task_set=UserBehavior
-    wait_time=between(5, 15)
+    wait_time=between(0.1, 0.5)
