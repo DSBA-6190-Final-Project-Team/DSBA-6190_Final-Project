@@ -6,4 +6,4 @@ In order to reach the Requests per Second (RPS) needed for this project one stan
 
 The load test proceeded as a step function. The maximum number of users modeled was 1,200. To reach a max level of 1,200 users, every 10 minutes the test would increase by 400 users. Each user pinged the REST API every 0.1 to 0.5 seconds.
 
-![Number of Users]("../presentation/slide_imgs/load_test_locust_number_of_users.png")
+![Number of Users](../presentation/slide_imgs/load_test_locust_number_of_users.png)
