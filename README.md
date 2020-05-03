@@ -69,4 +69,5 @@ GitHub Repo Updates > Triggers CodeBuild > CodeBuild Executes **buildspec.yml** 
 
 # Possible Future Updates
 * Integrate input date processing as part of the automatic deployment.
+* Integrate REST API implementation as part of automatic deployment.
 * Testing and reports as part of the CodeBuild flow after the model is deployed.
