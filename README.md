@@ -70,4 +70,5 @@ The CodeBuild process is defined by the **buildspec.yml** file. This file tells 
 GitHub Repo Updates > Triggers CodeBuild > CodeBuild Executes **buildspec.yml** > Executes **model_deploy-distracted driver_identification.ipynb** notebook
 
 # Possible Future Updates
+* Integrate input date processing as part of the automatic deployment.
 * Testing and reports as part of the CodeBuild flow after the model is deployed.
