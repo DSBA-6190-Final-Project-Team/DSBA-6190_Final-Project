@@ -13,7 +13,7 @@
 * Shilpa Patil
 * Ibrokhim Sadikov
 
-This repo contains the files for a Continuous Integration/Continuous Deployment (CI/CD) process for an image classification model to identify distracted drivers. For the process framework, this project uses Amazon CodeBuild to continuously deploy and update the project, and Amazon Sagemaker to train and deploy the resulting model to an endpoint. The endpooint is then made publicaly avaiable as a REST API by using Amazon Gateway API coupled with Amazon Lambda.
+This repo contains the files for a Continuous Integration/Continuous Deployment (CI/CD) process for an image classification model to identify distracted drivers. For the process framework, this project uses Amazon CodeBuild to continuously deploy and update the project, and Amazon Sagemaker to train and deploy the resulting model to an endpoint. The endpoint is then made publicly available as a REST API by using Amazon Gateway API coupled with Amazon Lambda.
 
 The project flow is broken down into the following steps:
 
@@ -60,7 +60,7 @@ Once the data is processed and uploaded to S3, the model can be trained. All mod
 A REST API is established to allow public access to the deployed model. The REST API uses Amazon Gateway API Service with a Lambda Function to generate predications using an image as an input. The Lambda function script can be found in the **REST API** directory. Furthermore, the README in the  **REST API** directory provides instructions on how to establish an API Gateway which will accept JPG images. 
 
 ## Load-Test Deployed Endpoint
-The deployed endpoint was load tested using [Locust](https://locust.io/). All load testing files and and results discussion can be found in the **load_test** directory.
+The deployed endpoint was load tested using [Locust](https://locust.io/). All load testing files and results discussion can be found in the **load_test** directory.
 
 ## Overall Structure: CodeBuild Framework For Continuous Deployment
 To Continuously Deploy the Image Classification model, this project uses Amazon CodeBuild. CodeBuild automatically compiles the source code and runs the necessary files in this repo to train and deploy the model. Once trained, the model is either deployed as an endpoint, or a currently deployed endpoint is updated with the new model.
