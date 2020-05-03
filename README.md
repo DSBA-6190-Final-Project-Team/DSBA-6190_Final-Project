@@ -54,13 +54,15 @@ The images provided in the **train** directory are JPG files. The algorithm used
 The RecordIO file type is recommended by Amazon and is the file type used for this project. Therefore, the raw image files provided needed to be converted to RecordIO. To convert these raw images, the conversion tool (**im2rec.py** python script, found in the **tools** folder) provided by [Apache MXNet](https://mxnet.apache.org/api/faq/recordio) was used.
 
 ## Train and Deploy Model
-Once the data is processed and uploaded to S3, the model can be trained. All model training and deployment is performed in the **model_deploy-distracted driver_identification.ipynb** notebook. This notebook imports the data from S3 (uploaded in the previous step), trains the Image Classification Model (using a pre-trained model to save time and money), and then deploys the model to an HHTPS endpoint. Once the endpoint is deployed, an autoscaling policy is applied.
+Once the data is processed and uploaded to S3, the model can be trained. All model training and deployment is performed in the **model_deploy-distracted driver_identification.ipynb** notebook. This notebook imports the data from S3 (uploaded in the previous step), trains the Image Classification Model (using a pre-trained model to save time and money), and then deploys the model to an HTTPS endpoint. Once the endpoint is deployed, an autoscaling policy is applied.
 
 ## REST API
-Once the trained model is deployed, a REST API is established to allow public access to the model. The REST API uses Amazon Gateway API Service with a Lambda Function to provide access to distracted driver image predictions. The Lambda function script can be found in the **REST API** subfolder. Furthermore, the README in the  **REST API** subfolder provides instructions on how to establish an API Gateway which will accept JPG images. 
+A REST API is established to allow public access to the deployed model. The REST API uses Amazon Gateway API Service with a Lambda Function to generate predications using an image as an input. The Lambda function script can be found in the **REST API** subfolder. Furthermore, the README in the  **REST API** subfolder provides instructions on how to establish an API Gateway which will accept JPG images. 
 
 ## Load-Test Deployed Endpoint
-*To Be Completed Later. Currently the expected method for Load Testing is to use a Lambda Function to ping the model endpoint. Currently this will be done manually, but if we roll everything into a CodePipeline, CloudFormation, or Terraform package, this step could be part of the CI/CD pipeline.*
+The deployed endpoint was load tested using [Locust](https://locust.io/). All load testing files can be found in the **load_test** subfolder. 
+
+Full discussioon of the load test results can be found in the README in the **load_test** subfolder.
 
 ## Overall Structure: CodeBuild Framework For Continuous Deployment
 To Continuously Deploy the Image Classification model, this project uses Amazon CodeBuild. CodeBuild automatically compiles the source code and runs the necessary files in this repo to train and deploy the model. Once trained, the model is either deployed as an endpoint, or a currently deployed endpoint is updated with the new model.
