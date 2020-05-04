@@ -1,0 +1,135 @@
+---
+title: "Load Test Plots"
+author: "Evan Canfield"
+date: "5/3/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Import
+## Libraries
+```{r import_libraries}
+if (!require(pacman)) {install.packages('pacman')} 
+p_load(
+  janitor, 
+  lubridate, 
+  Hmisc,
+  RColorBrewer,
+  scales, 
+  skimr, 
+  tidyverse,
+  viridis
+)
+```
+
+## Data
+```{r import_data}
+# Olist Dataset
+df_invoc_raw <- read.csv(file = "chart_extracted_data/invocations_input.csv", stringsAsFactors = FALSE)
+```
+
+# Processing
+```{r}
+df_invoc <- df_invoc_raw %>% 
+  rename(time_min = time,
+          per_instance = invocations_per_instance,
+         total = invocations_total)
+
+df_invoc %>% glimpse()
+```
+
+
+```{r}
+start_time_str = "2020-04-30T14:40:00"
+
+start_time <- as.POSIXct(start_time_str,format="%Y-%m-%dT%H:%M:%S")
+
+df_invoc <- df_invoc %>% 
+  mutate(time = paste("0:",time_min,":0"),
+         time = start_time + hms(time))
+
+```
+
+
+Pivot Longer and remove last time interval
+```{r}
+df_invoc_plot <- df_invoc %>% 
+  pivot_longer(cols = per_instance:total,names_to = 'metric', 
+               values_to = 'invocations_per_min') %>% 
+  filter(time_min <= 35) %>% 
+  mutate(metric_label = if_else(metric == "total", "Total", "Per Instance"))
+
+df_invoc_plot
+```
+
+
+# Invocations Plot
+## Theme and Settings
+```{r}
+color_blue = "#1F77B4"
+color_orange = "#F97F13"
+color_alarm_limit = "#DC4546"
+
+color_pal <- c('total' = color_blue,
+               'per_instance' = color_orange)
+
+annotate_text = 'Auto-Scale Alarm'
+text_size = 3
+alarm_text_size = 2
+
+theme_invocation <- function(){
+  theme_classic() +
+  theme(
+    plot.margin = margin(t = 0.1, r = 2.5, 
+                         b = 0.1, l = 0.1, unit = "cm"),
+    legend.position = "none",
+    axis.title.y = element_text(size = 12, 
+                                hjust = 0.95),
+    axis.title.x = element_text(size = 12, 
+                                hjust = 0.05),
+    axis.text = element_text(size = 10),
+    plot.caption = element_text(size = 7.5)
+    )
+}
+```
+
+## Visual
+```{r}
+class(df_invoc_plot$time)
+```
+
+
+```{r}
+p <- ggplot(data = df_invoc_plot,
+            mapping = aes(x = time_min, y = invocations_per_min/1e3, color = metric)) + 
+  geom_line(size = 0.75) +
+  geom_hline(yintercept = 30, color = color_alarm_limit, linetype = 2, size = 0.75) +
+  geom_hline(yintercept = 60, color = color_alarm_limit, linetype = 2, size = 0.75) +
+  geom_text(data = df_invoc_plot %>% tail(2), 
+            mapping = aes(label = metric_label),
+            nudge_x = 1,
+            hjust = 0,
+            size = text_size
+            ) +
+  annotate(geom = "text", x = 32, y = 25, size = alarm_text_size,
+           label = annotate_text, color = color_alarm_limit) + 
+  annotate(geom = "text", x = 32, y = 55, size = alarm_text_size,
+         label = annotate_text, color = color_alarm_limit) + 
+  scale_y_continuous(label = comma, limits = c(0,80)) +
+  scale_color_manual(values = color_pal) + 
+  ylab(label = "Invocations\n(k per min)") + 
+  xlab(label = "Time (min)") +
+  labs(caption = "AWS CloudWatch Metrics") +
+  coord_cartesian(
+   clip = "off"
+   ) +
+  theme_invocation() 
+
+p
+
+ggsave(filename = "slide_imgs/aws_metrics.png", plot = p, width = 12, height = 6, units = "cm")
+```
+

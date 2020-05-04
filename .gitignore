@@ -137,3 +137,6 @@ imgs/*
 *.rec
 incubator-mxnet/
 client_secrets.json
+.Rproj.user
+presentation/.Rhistory
+presentation/.RData
