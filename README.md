@@ -1,5 +1,3 @@
-*Add Distracted Driver Image as Header*
-
 [![CircleCI](https://circleci.com/gh/DSBA-6190-Final-Project-Team/DSBA-6190_Final-Project.svg?style=svg)](https://circleci.com/gh/DSBA-6190-Final-Project-Team/DSBA-6190_Final-Project)
 
 ![Build Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiOVdVSE5rWHlPY1RUYS9uRis2cll2enNIMEtCQkxXYkJjeFJFcGsrSmp1bGgyK2ZuMWc5WkRIM1BxNWRGR1FqaWMvVU5qd1EyZnNCWWNzVUVkakFyR24wPSIsIml2UGFyYW1ldGVyU3BlYyI6IjVyaTRlSy9aTHQzbE1PZ3MiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
@@ -71,4 +69,5 @@ GitHub Repo Updates > Triggers CodeBuild > CodeBuild Executes **buildspec.yml** 
 
 # Possible Future Updates
 * Integrate input date processing as part of the automatic deployment.
+* Integrate REST API implementation as part of automatic deployment.
 * Testing and reports as part of the CodeBuild flow after the model is deployed.
