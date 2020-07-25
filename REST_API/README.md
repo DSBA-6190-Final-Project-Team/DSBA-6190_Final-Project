@@ -14,7 +14,7 @@ The following blog post was a big help in setting up the SageMaker endpoint as a
 
 3. Keep Defaults. Add Name and description.
 
-4. Go to **Resources** (Left bar, under API): . Make Sure **/** is highlighted in the **Resources** banner.
+4. Go to **Resources** (far left bar, under API). Make Sure **/** is highlighted in the **Resources** banner.
 
 ![Create Resource](images/2_create_resource.png)
 
